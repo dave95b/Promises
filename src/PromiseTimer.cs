@@ -1,27 +1,20 @@
 using System;
 using System.Collections.Generic;
 
-namespace RSG
+namespace Promises
 {
-
     public class PromiseCancelledException : Exception
     {
         /// <summary>
         /// Just create the exception
         /// </summary>
-        public PromiseCancelledException()
-        {
-
-        }
+        public PromiseCancelledException() { }
 
         /// <summary>
         /// Create the exception with description
         /// </summary>
         /// <param name="message">Exception description</param>
-        public PromiseCancelledException(String message) : base(message)
-        {
-
-        }
+        public PromiseCancelledException(String message) : base(message) { }
     }
 
     /// <summary>
@@ -163,9 +156,7 @@ namespace RSG
             var node = FindInWaiting(promise);
 
             if (node == null)
-            {
                 return false;
-            }
 
             node.Value.pendingPromise.Reject(new PromiseCancelledException("Promise was cancelled by user."));
             waiting.Remove(node);
@@ -173,14 +164,12 @@ namespace RSG
             return true;
         }
 
-        LinkedListNode<PredicateWait> FindInWaiting(IPromise promise)
+        private LinkedListNode<PredicateWait> FindInWaiting(IPromise promise)
         {
             for (var node = waiting.First; node != null; node = node.Next)
             {
                 if (node.Value.pendingPromise.Id.Equals(promise.Id))
-                {
                     return node;
-                }
             }
 
             return null;
@@ -225,9 +214,7 @@ namespace RSG
                     node = RemoveNode(node);
                 }
                 else
-                {
                     node = node.Next;
-                }
             }
         }
 
@@ -245,4 +232,3 @@ namespace RSG
         }
     }
 }
-

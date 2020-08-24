@@ -1,8 +1,8 @@
-namespace RSG
+namespace Promises
 {
     /// <summary>
     /// Provides static methods for creating tuple objects.
-    /// 
+    ///
     /// Tuple implementation for .NET 3.5
     /// </summary>
     public class Tuple
@@ -15,10 +15,7 @@ namespace RSG
         /// <param name="item1">The value of the first component of the tuple.</param>
         /// <param name="item2">The value of the second component of the tuple.</param>
         /// <returns>A 2-tuple whose value is (item1, item2)</returns>
-        public static Tuple<T1, T2> Create<T1, T2>(T1 item1, T2 item2)
-        {
-            return new Tuple<T1, T2>(item1, item2);
-        }
+        public static Tuple<T1, T2> Create<T1, T2>(T1 item1, T2 item2) => new Tuple<T1, T2>(item1, item2);
 
         /// <summary>
         /// Create a new 3-tuple, or triple.
@@ -30,10 +27,7 @@ namespace RSG
         /// <param name="item2">The value of the second component of the tuple.</param>
         /// <param name="item3">The value of the third component of the tuple.</param>
         /// <returns>A 3-tuple whose value is (item1, item2, item3)</returns>
-        public static Tuple<T1, T2, T3> Create<T1, T2, T3>(T1 item1, T2 item2, T3 item3)
-        {
-            return new Tuple<T1, T2, T3>(item1, item2, item3);
-        }
+        public static Tuple<T1, T2, T3> Create<T1, T2, T3>(T1 item1, T2 item2, T3 item3) => new Tuple<T1, T2, T3>(item1, item2, item3);
 
         /// <summary>
         /// Create a new 4-tuple, or quadruple.
@@ -47,10 +41,7 @@ namespace RSG
         /// <param name="item3">The value of the third component of the tuple.</param>
         /// <param name="item4">The value of the fourth component of the tuple.</param>
         /// <returns>A 3-tuple whose value is (item1, item2, item3, item4)</returns>
-        public static Tuple<T1, T2, T3, T4> Create<T1, T2, T3, T4>(T1 item1, T2 item2, T3 item3, T4 item4)
-        {
-            return new Tuple<T1, T2, T3, T4>(item1, item2, item3, item4);
-        }
+        public static Tuple<T1, T2, T3, T4> Create<T1, T2, T3, T4>(T1 item1, T2 item2, T3 item3, T4 item4) => new Tuple<T1, T2, T3, T4>(item1, item2, item3, item4);
     }
 
     /// <summary>
