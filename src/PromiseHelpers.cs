@@ -72,5 +72,9 @@ namespace Promises
         /// </summary>
         public static IPromise<Tuple<T1, T2, T3, T4>> All<T1, T2, T3, T4>(IPromise<T1> p1, IPromise<T2> p2, IPromise<T3> p3, IPromise<T4> p4) => All(All(p1, p2), All(p3, p4))
                 .Then(vals => Tuple.Create(vals.Item1.Item1, vals.Item1.Item2, vals.Item2.Item1, vals.Item2.Item2));
+
+        public static IPromise<TPromised> Then<TPromised, TOther>(this IPromise<TPromised> promise, IPromise<TOther> other) => promise.Then(value => other.Then(x => value));
+
+        public static IPromise<TPromised> Then<TPromised>(this IPromise<TPromised> promise, IPromise other) => promise.Then(value => other.Then(() => Promise<TPromised>.Resolved(value)));
     }
 }
